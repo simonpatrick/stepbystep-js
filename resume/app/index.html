@@ -1,39 +1,132 @@
-<!--index.html -->
-<!DOCTYPE html>
-<html ng-app="scotchApp">
-<head lang="en">
-  <!--SCROLLS-->
+<!doctype html>
+<html ng-app="hedwigSample">
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="with=device-width,initial-scale=1.0">
-  <meta name="description" content="hedwig"/>
-  <meta name="author" content="simon patrick"/>
+  <title>Learning Angular JS</title>
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-  <!--add font-->
-  <script src="../bower_components/angular/angular.min.js"></script>
-  <script src="../bower_components/angular-route/angular-route.min.js"></script>
-  <script src="scripts/app.js"></script>
-  <title>SPA</title>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="shortcut icon" href="images/yeoman.png" type="image/x-icon"/>
 </head>
-<body ng-controller="mainController">
-<header>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Angular Routing Sample</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
-        <li><a href="/about"><i class="fa fa-shield"></i>About</a></li>
-        <li><a href="/contact"><i class="fa fa-comment"></i>Contact</a></li>
+<body>
+<div class="container" style="width: 800px;margin:10px 0;">
+  <ul class="nav nav-tabs" ng-controller="navController">
+    <li ng-class="{ active: controllerName ='homeController'}">
+      <a ng-href="{{rootPath}}">Home</a>
+    </li>
+    <li ng-class="{ active: controllerName ='simpleDemoController'}">
+      <a ng-href="{{rootPath}}/simpleDemoController">Simple Demo</a>
+    </li>
+    <li ng-class="{ active: controllerName ='advancedDemoController'}">
+      <a ng-href="{active :advancedDemoController}" href="{{rootPath}}/advancedDemoController">
+        advanced Demo
+      </a>
+    </li>
+  </ul>
+  </div>
+  <div ng-view style="margin-top: 10px;">
 
-      </ul>
+  </div>
+<!-- Template definitions -->
+<script type="text/ng-template" id="home.html">
+  <h3 class="text-primary">AngularJS Demo Application</h3>
+  This is a sample Single-page Application built on AngularJS. Let's go around, check out tabs and explore <a href="https://github.com/kms-technology/angularjs"><abbr title="At github.com">the source code</abbr></a> to learn the detail implementation
+</script>
+
+<script type="text/ng-template" id="simple-demo.html">
+  <blockquote>
+    The below is a typical Registration form for new account in a forum. It uses following features in AngularJS:
+    <ul>
+      <li>Two-way binding between Model and View</li>
+      <li>Communication between View and Controller</li>
+    </ul>
+  </blockquote>
+  <h3 class="text-primary">Register new account</h3>
+  <form class="form-horizontal" role="form">
+    <div class="form-group" ng-show="accountRegistrationError">
+      <div class="text-danger col-sm-12">
+        Could not create new account, check your input again
+      </div>
     </div>
-  </nav>
-</header>
-<div id="main">
-  <!--angular template-->
-  <!--this is where content will be injected-->
-  <div ng-view></div>
+    <div class="form-group" ng-show="accountRegistrationSuccess">
+      <div class="text-success col-sm-12">
+        Successful ! Check Inbox of your new email ...
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">Name</label>
+      <div class="col-sm-8">
+        <input type="text" id="inputName" ng-model="accountName" class="form-control" placeholder="Enter name" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 control-label">New email</label>
+      <div class="col-sm-8">
+        <span ng-bind="accountName | toEmailName" class="text-muted"></span>@kms-technology.com
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 control-label">Are you human?</label>
+      <div class="col-sm-8">
+        <span ng-bind="generatedCaptchaText" class="text-success"></span>
+        (<a href="javascript:void(0);" ng-click="generateCaptchaText()">again</a>)<br /><br />
+        <input type="text" ng-model="captchaText" class="form-control" placeholder="Enter the above captcha text" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-6 col-sm-12">
+        <button type="button" ng-click="registerNewAccount()" class="btn btn-default">Register me</button>
+      </div>
+    </div>
+  </form>
+</script>
+
+<script type="text/ng-template" id="advance-demo.html">
+  <blockquote>
+    This page will show RSS news (use Google Feed API internally). It uses following features in AngularJS:
+    <ul>
+      <li>Custom directives</li>
+      <li>Custom factory</li>
+      <li>Built-in services injection</li>
+    </ul>
+  </blockquote>
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <label for="fetchAmountDropdown">Number of items to fetch</label>
+      <select class="form-control" id="fetchAmountDropdown" ng-model="fetchAmount" style="width: 100px;">
+        <option value="5">5</option>
+        <option value="10" ng-selected="fetchAmount == 10">10</option>
+        <option value="20" ng-selected="fetchAmount == 20">20</option>
+      </select>
+    </div>
+    <a void ng-click="getNews()" class="btn btn-default" ng-class="{ 'disabled': onLoading }" role="button">Fetch news</a>
+    <img src="images/ajax-loading.gif" ng-show="onLoading" />
+    <span class="text-success" ng-show="showLoadingSuccessHint">Done !</span>
+  </form>
+  <br />
+  <div ng-show="newsItems.length == 0" class="text-muted">
+    <em>No news item to display</em>
+  </div>
+  <div ng-repeat="item in newsItems" style="padding: 10px 0;">
+    <div class="pull-left">
+      <a ng-href="{{item.link}}" open-new title="{{item.title}}">
+        <img ng-src="{{item.mediaGroups[0].contents[0].thumbnails[0].url}}" style="width: 150px;" />
+      </a>
+    </div>
+    <div class="pull-right" style="width: 600px;">
+      <a ng-href="{{item.link}}" ng-bind="item.title" open-new></a><br />
+      <span ng-bind="item.contentSnippet"></span><br /><br />
+      <share url="{{item.link}}" article-title="{{item.title}}" description="{{item.contentSnippet}}"></share>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</script>
+
 </div>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-route/angular-route.min.js"></script>
+<script src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="../bower_components/Faker/build/build/faker.min.js"></script>
 </body>
 </html>

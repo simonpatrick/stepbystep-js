@@ -23,7 +23,7 @@ module.exports = function(config) {
     files: [
       // bower:js
       // endbower
-      "app/scripts/**/*.js",
+      "../app_back/scripts/**/*.js",
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
