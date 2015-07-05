@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="with=device-width,initial-scale=1.0">
+  <meta name="description" content="run java 8 in cloud"/>
+  <meta name="author" content="simon patrick"/>
+  <title>Learning togetherjs</title>
+
+  <link rel="stylesheet" href="../bower_components/codemirror/lib/codemirror.css"/>
+  <script src="../bower_components/codemirror/lib/codemirror.js"></script>
+  <script src="../bower_components/codemirror/addon/edit/matchbrackets.js"></script>
+  <style>
+    .CodeMirror {
+      border: 2px inset #dee;
+    }
+
+    body {
+      padding-top: 80px;
+    }
+  </style>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="read-only">Toggle navigation</span>
+      <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a herf="" href="/">Home</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron container">
+  <h1>Try Java 8 -- Free</h1>
+
+  <p>write java 8 code here</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h2>run your java 8 code</h2>
+
+        <form id="codeForm">
+          <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-success">Run Code</button>
+                <button class="btn btn-info" onclick="TogetherJS(this);return false;">Start TogetherJS</button>
+              </div>
+          </div>
+        </form>
+      </div>
+      <div id="outputBox" class="col-md-4 col-md-offset-1">
+        <div id="resultRow" class="row">
+          <h2>Program Output</h2>
+          <div id="result" class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer id="footer">
+    <p>&copy;simon patirck2013</p>
+  </footer>
+</div>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/"></script>
+<scirpt>
+  var editor=CodeMirror.fromTextArea(document.getElementById("code"),{
+    lineNumbers: true,
+    matchBrackets: true,
+    mode : "text/x-java
+  };
+</scirpt>
+<script type="text/javascript">
+  $("#codeForm").submit(
+    function(event) {
+      event.preventDefault();
+      $("#status").empty();
+      $("#result").empty();
+      var code = $('textarea').val();
+      if (!code) {
+        alert("Please write some code");
+        return;
+      }
+      var data = {code : code};
+  `             var url = "http://tryjava-t20.rhcloud.com/api/snippets";
+      $.ajax( url,
+        {
+          data : JSON.stringify(data),
+          crossDomain : true,
+          contentType : 'application/json',
+          type : 'POST',
+          async : true,
+          success : function(result) {
+            $("#resultRow").show();
+            if (result.compilerOutput != 0) {
+              $("#result").append("<p class='text-error'>"+ result.result + "</p>");
+            } else if (result.verdict === "FAILURE") {
+              $("#result").append("<p class='text-error'>"+ result.result+ "</p>");
+            } else {
+              $("#result").append("<p class='text-success'>"+ result.result+ "</p>");
+            }
+          },
+          error : function() {
+            alert("Something wrong happened on the server");
+          }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -28,4 +28,4 @@ User.prototype.addBalance = function (amount) {
     this.balance += depositeMinusFee(amount)
 };
 
-module.exports = User;
+exports = User;
