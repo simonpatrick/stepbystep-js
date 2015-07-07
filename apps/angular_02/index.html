@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script type="text/script">
+  angular.module('hello', []).controller('HelloCtrl', function($scope){
+  $scope.name = 'World';
+});
+
+  </script>
+
+</head>
+<body ng-app>
+<!--<h1>Hello , {{name}}</h1>-->
+
+<!--Say hello to : <input type="text" ng-model="name"/>-->
+<!--<h1>Hello {{name}}</h1>-->
+
+<div ng-controller="HelloCtrl">
+  Say Hello to : <input type="text" ng-model="name"/>
+
+  <h1>Hello {{ name }}</h1>
+</div>
+</body>
+</html>
