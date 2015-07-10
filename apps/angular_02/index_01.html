@@ -5,21 +5,9 @@
   <title></title>
   <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
   <script src="../bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript">
-    var worldCtrl=function($scope){
-      $scope.population =70000;
-      $scope.countries =[
-        {name:'FR',population:63.1},
-        {name:'UK',population:61.8},
-      ]
-
-      $scope.worldsPercentage=function(countryPopulation){
-        return (countryPopulation/$scope.population)*100
-      }
-    }
-  </script>
+  <script src="app01.js"></script>
 </head>
-<body ng-app>
+<body ng-app="hello">
   <div ng-controller="worldCtrl" class="container">
     <hr>
     <ul>
