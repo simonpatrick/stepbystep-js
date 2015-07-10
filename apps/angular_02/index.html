@@ -4,23 +4,26 @@
   <meta charset="UTF-8">
   <title>Hello World!</title>
   <script src="../bower_components/angular/angular.min.js"></script>
-  <script type="text/script">
-  angular.module('hello', []).controller('HelloCtrl', function($scope){
-  $scope.name = 'World';
-});
+  <script type="text/javascript">
+        var HelloCtrl = function($scope){
+            $scope.name='World';
+            $scope.getName=function(){
+                return $scope.name;
+            };
+        }
 
+        angular.module("hello",[]).controller("helloCtrl",HelloCtrl);
   </script>
 
 </head>
-<body ng-app>
+<body ng-app ng-init="name='test'">
 <!--<h1>Hello , {{name}}</h1>-->
 
 <!--Say hello to : <input type="text" ng-model="name"/>-->
 <!--<h1>Hello {{name}}</h1>-->
 
-<div ng-controller="HelloCtrl">
-  Say Hello to : <input type="text" ng-model="name"/>
-
+<div ng-controller="helloCtrl">
+  Say Hello to : <input type="text" ng-model="$parent.name"/>
   <h1>Hello {{ name }}</h1>
 </div>
 </body>
