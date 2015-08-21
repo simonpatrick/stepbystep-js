@@ -1,1 +1,1 @@
-mkdir client public server lib
+mkdir -p client public server lib
