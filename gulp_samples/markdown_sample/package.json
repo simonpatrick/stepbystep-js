@@ -1,0 +1,19 @@
+{
+  "name": "markdown_sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "ejs": "^2.3.3",
+    "express": "^4.13.3",
+    "redis": "^0.12.1",
+    "share": "^0.7.40",
+    "showdown": "^1.2.2"
+  }
+}
