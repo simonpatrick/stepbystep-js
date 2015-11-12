@@ -14,12 +14,22 @@ new Vue({
                 name: "test2",
                 isPass: true,
                 logs:["testlogging1","testlog2"]
-            }]},
-            {name:"Name3",cases:100,isPass:true,passed:100,failed:10,testCases:[{
+            },{
                 name: "test3",
                 isPass: false,
                 logs:["testlogging1","testlog2"]
-            }]}]
+            }]},
+            {name:"Name3",cases:100,isPass: true ,passed:100,failed:10,testCases:[{
+                name: "test3",
+                isPass: false,
+                logs:["testlogging1","testlog2"]
+            }]},
+            {name:"Name4",cases:100,isPass: true ,passed:100,failed:10,testCases:[{
+                name: "test3",
+                isPass: false,
+                logs:["testlogging1","testlog2"]
+            }]}
+        ],
     },
     methods: {
     }
