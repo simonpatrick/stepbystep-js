@@ -1,0 +1,29 @@
+<div class="container">
+    <header>
+        <h1>Todo List({{ incompleteCount() }})</h1>
+        <label class="hide-completed">
+            <input type="checkbox"
+                   ng-model="$parent.hideCompleted"/>
+            Hide Completed Tasks
+        </label>
+
+        <blaze-template name="loginButtons"></blaze-template>
+
+        <!--add a form below the h1-->
+        <form  class="new-task" ng-submit="addTask(task);newTask='';"
+               ng-show="$root.currentUser">
+            <input type="text" ng-model="newTask" name="text"
+                   placeholder="type to add one new todo"/>
+        </form>
+    </header>
+
+    <ul>
+        <li ng-repeat="task in tasks" ng-class="{'checked':task.checked}">
+            <button class="delete" ng-click="tasks.remove(task)">
+                &times;
+            </button>
+            <input type="checkbox" ng-model="task.checked" class="toggle-checked"/>
+            <span class="text"><strong>{{task.username}}</strong>- {{task.text}}</span>
+        </li>
+    </ul>
+</div>

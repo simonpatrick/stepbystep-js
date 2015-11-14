@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Vue.js Guide</title>
+    <link rel="stylesheet" href="page.css"/>
+</head>
+<body>
+<div id="demo">
+    <h1>{{title | uppercase }}</h1>
+    <ul>
+        <li v-repeat="todos"
+            v-on="click: done=!done"
+            class="{{done? 'done':''}}">
+            {{content}}
+        </li>
+    </ul>
+</div>
+
+<script src="../../bower_components/vue/dist/vue.min.js"></script>
+<script>
+    var demo=new Vue({
+       el: '#demo',
+        data:{
+            title: "Vue.js guide",
+            todos:[
+                {
+                    done:true,
+                    content: "first one"
+                },
+                {
+                    done:false,
+                    content:"second one"
+                }
+            ]
+        }
+    });
+</script>
+</body>
+
+</html>

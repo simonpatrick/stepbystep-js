@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sample post</title>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="page.css"/>
+</head>
+<body>
+    <article id="post" class="container" v-show="isVisible">
+        <button class="glyphicon glyphicon-remove-sign pull-right"
+                v-on="click:isVisible=false"></button>
+        <h1>some post</h1>
+
+        <p>some post some post some post</p>
+        <button type="button" class="btn btn-default btn-lg"
+                v-class="active: liked"
+                v-on="click: toggleLike"></button>
+        <span class="glyphicon glyphicon-thumbs-up"></span>
+        <br/>
+        <pre>{{ $data | json }}</pre>
+    </article>
+
+
+
+    <script src="../../bower_components/vue/dist/vue.min.js"></script>
+    <script src="app.js"></script></body>
+</html>

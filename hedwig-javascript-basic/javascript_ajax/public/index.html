@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajax Sample</title>
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+
+</head>
+<body>
+
+<h1>please input your course name</h1>
+
+<div id="container">
+    <input type="text" id="keywords"/>
+    <ul id="hits" style="display: none"></ul>
+    <button id="searchbtn">search</button>
+</div>
+
+<script>
+    document.getElementById('keywords').oninput = function () {
+        var keyword = this.value;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'keyword/hit?keyword=' + encodeURIComponent(keyword), true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                handlerResult(xhr.responseText)
+            }
+        }
+
+        xhr.send();
+    }
+
+    function handlerResult(ret) {
+        ret = JSON.parse(ret);
+        var domHits = document.getElementById('hits')
+        if (ret.length) {
+            var lis = [];
+            for (var i = 0; i < array.length; i++) {
+                lis.push('<li>' + ret[i] + '</li>');
+            }
+
+            domHits.innerHTML = lis.join(',');
+            domHits.style.display = 'block'
+        } else {
+            domHits.innerHTML = ''
+            domHits.style.display = 'none'
+        }
+    }
+
+    document.getElementById('hits').onclick = function (event) {
+        document.getElementById('keywords').value = event.target.innerHTML;
+        this.style.display = 'none';
+    })
+
+</script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
