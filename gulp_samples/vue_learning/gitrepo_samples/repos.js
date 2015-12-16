@@ -38,7 +38,17 @@ var coderepos= new Vue({
        columns: ['author','category','language','location','description'],
        repos: [
            { author: 'hustcc', category: 'devops' ,language:'PYTHON',location:'https://github.com/hustcc/redis-monitor.git'
-               ,description:'a repo for monitoring redis server'}
+               ,description:'a repo for monitoring redis server'},
+           { author: 'chihongze', category: 'devops' ,language:'PYTHON',location:'https://github.com/chihongze/shard.py.git'
+               ,description:'sharding python operation samples'},
+           { author: 'daikeren', category: 'collections' ,language:'PYTHON,JS',location:'https://github.com/daikeren'
+               ,description:'python,javascript learning repositories'},
+           { author: 'daikeren', category: 'collections' ,language:'PYTHON,JS',location:'https://github.com/binux/pyspider.git'
+               ,description:'python learning repositories'},
+           { author: 'binux', category: 'web crawler' ,language:'PYTHON',location:'https://github.com/binux/pyspider.git'
+               ,description:'a web crawler repository'},
+           { author: 'Panblack', category: 'devops' ,language:'SHELL',location:'https://github.com/Panblack/ezdpl.git'
+               ,description:'shell script for deployment'}
        ]
    }
 });
