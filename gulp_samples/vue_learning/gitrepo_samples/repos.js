@@ -48,7 +48,12 @@ var coderepos= new Vue({
            { author: 'binux', category: 'web crawler' ,language:'PYTHON',location:'https://github.com/binux/pyspider.git'
                ,description:'a web crawler repository'},
            { author: 'Panblack', category: 'devops' ,language:'SHELL',location:'https://github.com/Panblack/ezdpl.git'
-               ,description:'shell script for deployment'}
+               ,description:'shell script for deployment'},
+           { author: 'Shougo', category: 'devops' ,language:'VIM',location:'https://github.com/Shougo/unite.vim'
+               ,description:'The unite or unite.vim plug-in can search and display information'},
+           { author: 'Runscope', category: 'devops' ,language:'PYTHON',location:'https://github.com/Runscope/httpbin'
+               ,description:'HTTP Request & Response Service, written in Python + Flask'
+           }
        ]
    }
 });
