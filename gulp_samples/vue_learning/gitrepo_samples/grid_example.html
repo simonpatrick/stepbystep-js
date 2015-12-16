@@ -28,9 +28,10 @@
             entry in data
             | filterBy filterKey
             | orderBy sortKey sortOrders[sortKey]">
+            <!--todo add <a> if column name is location and also add different class for different language-->
             <td v-for="key in columns">
                 {{entry[key]}}
-            </td>
+             </td>
         </tr>
         </tbody>
     </table>

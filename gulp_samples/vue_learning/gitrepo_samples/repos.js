@@ -37,10 +37,7 @@ var coderepos= new Vue({
        searchQuery: '',
        columns: ['author','category','language','location'],
        repos: [
-           { author: 'Chuck Norris', category: Infinity,language:'JAVA',location:'URL'},
-           { author: 'Bruce Lee', category: 9000 ,language:'JAVA',location:'URL'},
-           { author: 'Jackie Chan', category: 7000 ,language:'JAVA',location:'URL'},
-           { author: 'Jet Li', category: 8000 ,language:'JAVA',location:'URL1'}
+           { author: 'hustcc', category: 'redis' ,language:'PYTHON',location:'https://github.com/hustcc/redis-monitor.git'}
        ]
    }
 });
