@@ -35,9 +35,10 @@ var coderepos= new Vue({
    el: '#coderepos',
    data: {
        searchQuery: '',
-       columns: ['author','category','language','location'],
+       columns: ['author','category','language','location','description'],
        repos: [
-           { author: 'hustcc', category: 'redis' ,language:'PYTHON',location:'https://github.com/hustcc/redis-monitor.git'}
+           { author: 'hustcc', category: 'devops' ,language:'PYTHON',location:'https://github.com/hustcc/redis-monitor.git'
+               ,description:'a repo for monitoring redis server'}
        ]
    }
 });
