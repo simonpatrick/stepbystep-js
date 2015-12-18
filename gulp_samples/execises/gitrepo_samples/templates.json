@@ -1,3 +1,7 @@
-{ author: 'spotify', category: 'tuning' ,language:'Javascript',location:'https://github.com/spotify/threaddump-analyzer.git'
-,description:'Thread Dump Analyzer in a simple website'
+{
+  author: 'spotify',
+  category: 'tuning',
+  language: 'Javascript',
+  location: 'https://github.com/spotify/threaddump-analyzer.git',
+  description: 'Thread Dump Analyzer in a simple website'
 }
