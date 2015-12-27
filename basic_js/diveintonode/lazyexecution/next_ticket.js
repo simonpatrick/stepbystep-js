@@ -1,8 +1,9 @@
 /**
- * Created by patrick on 15/6/21.
+ * Created by patrick on 15/12/27.
  */
+
 process.nextTick(function(){
    console.log('lazy execution');
 });
 
-console.log('normal execution');
+console.log('execution well enough');
