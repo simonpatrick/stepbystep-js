@@ -1,7 +1,7 @@
 /**
- * Created by patrick on 15/9/4.
+ * Created by patrick on 15/12/27.
  */
 
-exports.hello=function(){
-    console.log("hello world!!!");
-}
+var hw = require('./helloworld.js')
+
+console.log(hw.sayHello());

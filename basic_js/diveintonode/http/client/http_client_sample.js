@@ -5,9 +5,9 @@
 var http = require('http');
 var options ={
     host:"www.baidu.com",
-    port:80,
+    //port:80,
     path:"/",
-    method:"POST"
+    method:"GET"
 };
 
 var req = http.request(options,function(res){
