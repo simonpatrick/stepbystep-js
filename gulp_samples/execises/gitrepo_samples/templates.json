@@ -1,7 +1,7 @@
 {
-  author: 'spotify',
-  category: 'tuning',
+  author: 'typicode',
+  category: 'mockserver',
   language: 'Javascript',
-  location: 'https://github.com/spotify/threaddump-analyzer.git',
-  description: 'Thread Dump Analyzer in a simple website'
+  location: 'https://github.com/typicode/json-server.git',
+  description: 'Mock Server for quick backend prototyping and mocking '
 }
