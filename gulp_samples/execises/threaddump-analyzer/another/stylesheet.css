@@ -1,0 +1,54 @@
+/**
+ * Created by patrick on 15/12/27.
+ */
+.ignored {
+    color: red;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.raw {
+    font-family: monospace;
+    white-space: pre;
+}
+
+.threadgroup {
+    margin-top: 1.5em;
+}
+
+.threadcount {
+    font-weight: bold;
+}
+
+.warn {
+    color: red;
+}
+
+a.internal:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a.internal:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a.internal:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+td.synchronizer {
+    vertical-align: top;
+}
+
+div.synchronizer {
+    margin-top: 0.25em;
+}
+
+:target {
+    background-color: #ffa;
+}

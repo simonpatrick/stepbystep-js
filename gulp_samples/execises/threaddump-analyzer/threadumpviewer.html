@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thread Dump Viewer</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<p>please select your file path</p>
+<p>file URL:</p>
+<input type="text" size="100" id="tdPath"/>
+<p>or:</p>
+<p>Past Thread Dump here: </p>
+<textarea name="tdump" id="tdump" cols="100" rows="10"></textarea>
+<p> Search <input type="text" size="80" id="keyword" /> </p>
+
+<script src="../node_modules/d3/d3.min.js"></script>
+<script src="parser.js"></script>
+<script src="tdViewer.js"></script>
+</body>
+</html>
