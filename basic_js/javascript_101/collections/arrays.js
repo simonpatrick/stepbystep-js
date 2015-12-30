@@ -18,4 +18,30 @@ function length(data,indicator){
 }
 console.log(length(test,"logs"));
 console.log(length(test,"log"));
-console.log(test["tst"])
+console.log(test["tst"]);
+
+var data = {
+    asset_attributes: [
+        {"name":"运维1"},
+        {"name":"运维2"},
+        {"name":"运维3"},
+        {"name":"运维4"},
+        {"name":"运维5"}
+    ],
+        assets_info: [
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"},
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"},
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"},
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"},
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"},
+        {"运维1":"运维","运维2":"运维2","运维3":"运维3","运维4":"运维4","运维5":"运维5"}
+    ]
+};
+
+console.log(data.assets_info[0]["运维1"]);
+
+function get_value(asset_info,key){
+    return asset_info[key];
+}
+console.log('\n');
+console.log(get_value(data.assets_info[0],"运维1"));
