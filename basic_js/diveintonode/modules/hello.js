@@ -3,5 +3,11 @@
  */
 
 var hw = require('./helloworld.js')
+function hello(message){
+    console.log(message)
+    console.log(hw.sayHello());
+}
 
-console.log(hw.sayHello());
+
+
+exports.hello =hello;

@@ -3,11 +3,12 @@
  */
 
 function Foo() {
-    name = 'foo';
-    hello =function(){
+    var name = 'foo';
+    var hello =function(message){
         console.log('hello world');
+        console.log('hello '+message)
     }
 
 }
 
-module.exports=Foo;
+module.exports=Foo()
