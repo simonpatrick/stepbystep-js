@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+
+<head>
+    <title>Movie Stub - Book Movie Tickets Online</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/controller/moviecontroller.js"></script>
+</head>
+
+<body class="container" ng-controller="MovieController">>
+<h1>Movie Stub</h1>
+<h4>Book Movie Tickets Online</h4>
+<br/>
+<input class="form-control" placeholder="Entry your favorite movie" ng-model="movieName">
+<h1 ng-show="movieName">My favorite movie is {{movieName}}!!</h1>
+
+<ul>
+    <li ng-repeat="movie in movies">
+        {{movie.id}} - {{movie.name}} - {{movie.rating}}
+    </li>
+</ul>
+</body>
+
+</html>
